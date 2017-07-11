@@ -1,14 +1,5 @@
 <?php
 
-function connectToDB() {
-  // Try to connect to our db, catch any exception and display error message
-  try {
-    return $pdo = new PDO('mysql:host=127.0.0.1;dbname=mytodo', 'root', '');
-  } catch (PDOException $e) {
-    die($e->getMessage()); // calling getMessage() method of object $e
-  }
-}
-
 function fetchAllTasks($pdo) {
   // Prepare sql query
   $statement = $pdo->prepare('select * from todos');
